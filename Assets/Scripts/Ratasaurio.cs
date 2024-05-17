@@ -6,7 +6,7 @@ public class Ratasaurio : MonoBehaviour
 {
     GameObject personaje;
     Vector3 posicionInicial;
-    public float velocidadFantasma = 5.0f;
+    public float velocidadRatasaurio = 5.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +21,7 @@ public class Ratasaurio : MonoBehaviour
     void Update()
     {
             float distancia = Vector3.Distance(transform.position, personaje.transform.position);
-        float velocidadFinal = velocidadFantasma * Time.deltaTime;
+        float velocidadFinal = velocidadRatasaurio * Time.deltaTime;
 
         
     }
