@@ -31,26 +31,26 @@ public class MovGus : MonoBehaviour
         float movTeclas = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(movTeclas*multiplicador, rb.velocity.y);
 
-         //flip<--
+   
 
         if (movTeclas < 0){
             this.GetComponent<SpriteRenderer>().flipX = true;  
             miraDerecha = false;      
         }else if (movTeclas > 0){       
-    //flip-->
+    
             this.GetComponent<SpriteRenderer>().flipX = false;  
             miraDerecha = true;      
         }
     
     
-    //ANIMATOR CONTROLLER
+    //ANIMATOR 
         if(movTeclas != 0){
             animatorController.SetBool("activaCamina", true);
         }else{
             animatorController.SetBool("activaCamina", false);
         }
 
-     //SALTO
+    //SALTO
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.5f);
         Debug.DrawRay(transform.position, Vector2.down, Color.magenta);
 
