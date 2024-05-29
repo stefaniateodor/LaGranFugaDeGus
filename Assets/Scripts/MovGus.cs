@@ -16,7 +16,7 @@ public class MovGus : MonoBehaviour
     public bool miraDerecha = true;
   
     
-    // Start is called before the first frame update
+  
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
@@ -24,7 +24,7 @@ public class MovGus : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
           //MOVIMIENTO 
@@ -66,7 +66,7 @@ public class MovGus : MonoBehaviour
         }
 
 
-       
+      
     }
        void FixedUpdate(){
 
