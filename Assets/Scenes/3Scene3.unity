@@ -9926,7 +9926,7 @@ GameObject:
   - component: {fileID: 1505414925}
   - component: {fileID: 1505414924}
   - component: {fileID: 1505414923}
-  - component: {fileID: 1505414922}
+  - component: {fileID: 1505414928}
   m_Layer: 0
   m_Name: Gus
   m_TagString: Untagged
@@ -9934,22 +9934,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1505414922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1505414920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 008392de362c4a444aa8172d022e0fd9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocidad: 5
-  multiplicador: 5
-  multiplicadorSalto: 5
-  miraDerecha: 1
 --- !u!50 &1505414923
 Rigidbody2D:
   serializedVersion: 4
@@ -10076,6 +10060,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1505414928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505414920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 008392de362c4a444aa8172d022e0fd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidad: 5
+  multiplicador: 5
+  multiplicadorSalto: 5
+  miraDerecha: 1
 --- !u!1001 &1687667282
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10495,7 +10495,7 @@ Animator:
   m_GameObject: {fileID: 2045545851}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 94a4b8c4ea7252d428ee6bbe3f56b27b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3ca8a419fce526740a4e31dac5ead34d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -10611,7 +10611,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 6.916166
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -10634,7 +10634,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2045545854}
   moveSpeed: 2
-  detectionRange: 9.14
+  detectionRange: 2.27
 --- !u!1 &2100969527 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5526920386943853627, guid: fd7961cd923066346ab05e1e03796e67, type: 3}
