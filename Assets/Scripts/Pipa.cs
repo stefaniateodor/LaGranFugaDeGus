@@ -22,7 +22,7 @@ public class Pipa : MonoBehaviour
         if (col.name == "Gus"){
         GameManager.pipa += 1;
         miAnimadorController.SetBool("pipaDestruir",true);
-         Destroy(this.gameObject,1f);
+         Destroy(this.gameObject,0.3f);
         }
         
       /* if (col.name == "Gus"){
