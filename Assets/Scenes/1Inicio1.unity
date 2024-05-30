@@ -1057,7 +1057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2719737b1622ff04db2b4fd0b4e038c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fuego: {fileID: 6309430353624930635, guid: dfdb00be612ebd3418b7f85e184c2ed7, type: 3}
+  fuego: {fileID: 7597436180871926848, guid: dfdb00be612ebd3418b7f85e184c2ed7, type: 3}
 --- !u!1 &966702275
 GameObject:
   m_ObjectHideFlags: 0
