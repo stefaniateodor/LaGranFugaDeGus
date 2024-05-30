@@ -51,11 +51,8 @@ public class MovGus : MonoBehaviour
         }
 
     //SALTO
-<<<<<<< HEAD
          RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.5f);
     Debug.DrawRay(transform.position, Vector2.down, Color.magenta);
-
-        
 
     if (hit){
         puedoSaltar=true;
