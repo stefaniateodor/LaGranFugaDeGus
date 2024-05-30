@@ -1,59 +1,41 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MovGusano : MonoBehaviour
 {
-    public Transform player;  // Reference to the player's transform
-    public float moveSpeed = 2f;  // Speed at which the worm moves
-    public float detectionRange = 5f;  // Range within which the worm detects the player
+    public float speed = 2f; // Speed of the worm's movement
+    public float leftBoundary = -5f; // Left boundary for the worm's movement
+    public float rightBoundary = 5f; // Right boundary for the worm's movement
+    private bool movingRight = true; // Direction flag
 
-    private Rigidbody2D rb;
-    private Animator animator;
-
-    void Start()
+    private void Update()
     {
-        rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        Move();
+        CheckBoundaries();
     }
 
-    void Update()
+    private void Move()
     {
-        // Check the distance between the worm and the player
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-
-        // If the player is within detection range, move towards the player
-        if (distanceToPlayer < detectionRange)
+        // Move the worm left or right based on the direction flag
+        if (movingRight)
         {
-            MoveTowardsPlayer();
+            transform.Translate(Vector2.right * speed * Time.deltaTime);
         }
         else
         {
-            // Stop the worm's movement if the player is out of range
-            rb.velocity = Vector2.zero;
-            animator.SetBool("IsMoving", false);  // Assuming you have an animation parameter to control movement
+            transform.Translate(Vector2.left * speed * Time.deltaTime);
         }
     }
 
-    void MoveTowardsPlayer()
+    private void CheckBoundaries()
     {
-        // Calculate the direction towards the player
-        Vector2 direction = (player.position - transform.position).normalized;
-
-        // Move the worm towards the player
-        rb.velocity = direction * moveSpeed;
-
-        // Set animation parameter to true to trigger movement animation
-        animator.SetBool("IsMoving", true);  // Assuming you have an animation parameter to control movement
-
-        // Optional: Flip the worm to face the player
-        if (direction.x > 0)
+        // Switch direction if the worm reaches the boundaries
+        if (transform.position.x >= rightBoundary)
         {
-            transform.localScale = new Vector3(8, 8, 8);
+            movingRight = false;
         }
-        else
+        else if (transform.position.x <= leftBoundary)
         {
-            transform.localScale = new Vector3(-8, 8, 8);
+            movingRight = true;
         }
     }
 }
