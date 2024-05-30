@@ -15,7 +15,23 @@ public class MovGus : MonoBehaviour
     private bool activaSaltoFixed = false;
     public bool miraDerecha = true;
   
-    
+    public Transform respawnPoint; // Assign this in the Inspector
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Check if the character collides with the spikes
+        if (collision.gameObject.CompareTag("Spikes"))
+        {
+            // Respawn the character at the respawn point
+            Respawn();
+        }
+    }
+
+    private void Respawn()
+    {
+        // Set the character's position to the respawn point's position
+        transform.position = respawnPoint.position;
+    }
   
     void Start()
     {
@@ -53,11 +69,12 @@ public class MovGus : MonoBehaviour
     //SALTO
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.5f);
-         //Debug.DrawRay(transform.position, Vector2.down, Color.magenta);
+    
 
         if (hit){
             puedoSaltar=true;
         //Debug.Log(hit.collider.name); 
+        
         }else{
             puedoSaltar=false;
         }
