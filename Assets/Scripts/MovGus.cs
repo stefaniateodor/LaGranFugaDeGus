@@ -51,19 +51,26 @@ public class MovGus : MonoBehaviour
         }
 
     //SALTO
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.5f);
-        Debug.DrawRay(transform.position, Vector2.down, Color.magenta);
+         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.5f);
+    Debug.DrawRay(transform.position, Vector2.down, Color.magenta);
 
-        if(hit){
-            puedoSaltar = true;
-        }else{
-            puedoSaltar = false;
-        }
+    if (hit){
+        puedoSaltar=true;
+        //Debug.Log(hit.collider.name); 
+    }else{
+        puedoSaltar=false;
+    }
 
+        //salto
         if(Input.GetKeyDown(KeyCode.Space) && puedoSaltar){
-            activaSaltoFixed = true;
-            
+            rb.AddForce( 
+                new Vector2(0,multiplicadorSalto),
+                ForceMode2D.Impulse
+            );
+           // puedoSaltar = false;
         }
+
+
 
 
       
