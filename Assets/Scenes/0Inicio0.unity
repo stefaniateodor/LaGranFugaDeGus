@@ -449,9 +449,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 418, y: 254, z: -10}
-  m_LocalScale: {x: 200.06944, y: 97.49588, z: 56.356}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 503, y: 193, z: -10}
+  m_LocalScale: {x: 204.15, y: 99.48437, z: 57.505417}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -538,7 +538,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 621378973}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 206545288}
+        m_TargetAssemblyTypeName: InicioScript, Assembly-CSharp
+        m_MethodName: ExitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &621378973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -727,7 +739,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1484496040}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 206545288}
+        m_TargetAssemblyTypeName: InicioScript, Assembly-CSharp
+        m_MethodName: OcultarSettings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1484496040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -741,7 +765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.435849, g: 0.96882063, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -802,8 +826,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 378}
+  m_AnchoredPosition: {x: 46.387474, y: 0.0086}
+  m_SizeDelta: {x: 125.7728, y: 370.3914}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1556275508
 MonoBehaviour:
@@ -1222,7 +1246,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1949081261}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 206545288}
+        m_TargetAssemblyTypeName: InicioScript, Assembly-CSharp
+        m_MethodName: MostrarSettings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1949081261
 MonoBehaviour:
   m_ObjectHideFlags: 0

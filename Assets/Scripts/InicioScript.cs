@@ -17,6 +17,13 @@ public class InicioScript : MonoBehaviour
     
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+
     public void StartGame(){
 
     SceneManager.LoadScene("1Inicio1");
@@ -35,12 +42,9 @@ public class InicioScript : MonoBehaviour
         panelSettings.SetActive(true);
         //AudioManager.Instance.SonarClipUnaVez(AudioManager.Instance.fxDead);
     }
+
+    
     public void OcultarSettings(){
         panelSettings.SetActive(false);
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
