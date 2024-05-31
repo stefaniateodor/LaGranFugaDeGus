@@ -4,33 +4,26 @@ using UnityEngine;
 
 public class MovPlataform : MonoBehaviour
 {
+ public float speed = 2f;          // Speed of the platform
+    public float leftBound = -3f;    // Left boundary for the platform
+    public float rightBound = 3f;    // Right boundary for the platform
 
-    public Transform PointA; // Primer punto de destino
-    public Transform PointB; // Segundo punto de destino
-    public float speed = 2f; // Velocidad de la plataforma
-    private Vector3 target;
+    private Vector3 direction = Vector3.left;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        target = PointB.position;
-    }
-
-    // Update is called once per frame
     void Update()
     {
-          MovePlatform();
-    }
+        // Move the platform
+        transform.Translate(direction * speed * Time.deltaTime);
 
-    void MovePlatform()
-    {
-        transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
-        
-        if (Vector3.Distance(transform.position, target) < 0.1f)
+        // Check if the platform has reached the left boundary
+        if (transform.position.x <= leftBound)
         {
-            target = target == PointA.position ? PointB.position : PointA.position;
+            direction = Vector3.right; // Change direction to right
         }
-        
-        
+        // Check if the platform has reached the right boundary
+        else if (transform.position.x >= rightBound)
+        {
+            direction = Vector3.left; // Change direction to left
+        }
     }
 }
