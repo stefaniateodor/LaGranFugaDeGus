@@ -5,6 +5,8 @@ using UnityEngine;
 public class DisparoGus : MonoBehaviour
 {
     public  GameObject fuego;  // Start is called before the first frame update
+    public float speedBala = 2.0f;
+    
     void Start()
     {
         

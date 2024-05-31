@@ -58,7 +58,7 @@ public class MovGus : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, multiplicadorRayo);
     
-Debug.Log("salto!" + hit.collider.gameObject.name);
+        Debug.Log("salto!" + hit.collider.gameObject.name);
         if (hit){
             puedoSaltar=true;
         //Debug.Log(hit.collider.name); 
