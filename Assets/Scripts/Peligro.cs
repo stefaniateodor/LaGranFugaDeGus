@@ -7,24 +7,17 @@ using UnityEngine;
 public class Peligro : MonoBehaviour
 {
     // Called when the character enters a trigger collider
-    private void OnTriggerEnter2D(Collider2D other)
+    public Transform RespawnPoint;
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.CompareTag("Spike"))
+        // Check if the character collides with the spikes
+        if (collision.CompareTag("Spike"))
         {
-            // Logic for what happens when the player collides with a spike
-            Debug.Log("Player hit a spike!");
-            // Add your logic here, e.g., reduce health, respawn, etc.
+            // Move the character to the respawn point
+            transform.position = RespawnPoint.position;
         }
     }
 
     // Called when the character collides with a non-trigger collider
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("Spike"))
-        {
-            // Logic for what happens when the player collides with a spike
-            Debug.Log("Player hit a spike!");
-            // Add your logic here, e.g., reduce health, respawn, etc.
-        }
-    }
+   
 }
