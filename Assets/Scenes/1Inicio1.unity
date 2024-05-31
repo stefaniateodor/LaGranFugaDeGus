@@ -1443,8 +1443,8 @@ MonoBehaviour:
   velocidad: 3
   multiplicador: 2
   multiplicadorSalto: 4
+  multiplicadorRayo: 0.5
   miraDerecha: 1
-  respawnPoint: {fileID: 0}
 --- !u!50 &943649155
 Rigidbody2D:
   serializedVersion: 4
