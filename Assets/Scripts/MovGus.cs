@@ -81,6 +81,7 @@ public class MovGus : MonoBehaviour
 
         //salto
         if(Input.GetKeyDown(KeyCode.Space) && puedoSaltar){
+            Debug.Log("jump");
             rb.AddForce( 
                 new Vector2(0,multiplicadorSalto),
                 ForceMode2D.Impulse
