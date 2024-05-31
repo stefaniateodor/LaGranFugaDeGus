@@ -27,5 +27,7 @@ public class Cucarachas : MonoBehaviour
         // Apply the new position
         transform.position = new Vector3(newX, transform.position.y, transform.position.z);
     }
+
+    
     }
 
