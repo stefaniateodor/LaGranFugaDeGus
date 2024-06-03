@@ -10,14 +10,18 @@ public class MovGus : MonoBehaviour
     public float velocidad = 5f;
     public float multiplicador = 5f;
     public float multiplicadorSalto = 5f;
+    public float multiplicadorRayo = 2f;
     float movTeclas;
     private bool puedoSaltar = true;
     private bool activaSaltoFixed = false;
     public bool miraDerecha = true;
     GameObject respawn;
   
-    
-    // Start is called before the first frame update
+
+   
+
+
+  
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
@@ -27,7 +31,7 @@ public class MovGus : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
           //MOVIMIENTO 
@@ -54,18 +58,26 @@ public class MovGus : MonoBehaviour
         }
 
     //SALTO
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.5f);
-        Debug.DrawRay(transform.position, Vector2.down, Color.magenta);
 
-        if(hit){
-            puedoSaltar = true;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, multiplicadorRayo);
+    
+        Debug.Log("salto!" + hit.collider.gameObject.name);
+        if (hit){
+            puedoSaltar=true;
+        //Debug.Log(hit.collider.name); 
+        
         }else{
-            puedoSaltar = false;
+            puedoSaltar=false;
         }
 
+        //salto
         if(Input.GetKeyDown(KeyCode.Space) && puedoSaltar){
-            activaSaltoFixed = true;
-            
+            Debug.Log("jump");
+            rb.AddForce( 
+                new Vector2(0,multiplicadorSalto),
+                ForceMode2D.Impulse
+            );
+           // puedoSaltar = false;
         }
 
         if(transform.position.y <= -7){
@@ -79,7 +91,9 @@ public class MovGus : MonoBehaviour
         }
 
 
-       
+
+
+      
     }
     void FixedUpdate(){
 
