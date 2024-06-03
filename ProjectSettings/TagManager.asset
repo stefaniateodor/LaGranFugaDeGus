@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerShot
   - Spike
+  - Enemigo
   layers:
   - Default
   - TransparentFX
