@@ -879,7 +879,7 @@ GameObject:
   - component: {fileID: 271210054}
   m_Layer: 0
   m_Name: Gusano (3)
-  m_TagString: Untagged
+  m_TagString: Spike
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1050,7 +1050,7 @@ GameObject:
   - component: {fileID: 308351263}
   m_Layer: 0
   m_Name: Cucaracha
-  m_TagString: Untagged
+  m_TagString: Spike
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1495,7 +1495,7 @@ GameObject:
   - component: {fileID: 443853050}
   m_Layer: 0
   m_Name: Gusano (2)
-  m_TagString: Untagged
+  m_TagString: Spike
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2508,7 +2508,7 @@ GameObject:
   - component: {fileID: 828110115}
   m_Layer: 0
   m_Name: Cucarachas
-  m_TagString: Untagged
+  m_TagString: Spike
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12567,7 +12567,7 @@ GameObject:
   - component: {fileID: 913672465}
   m_Layer: 0
   m_Name: Gusano (1)
-  m_TagString: Untagged
+  m_TagString: Spike
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29629,7 +29629,7 @@ GameObject:
   - component: {fileID: 2045545858}
   m_Layer: 0
   m_Name: Gusano
-  m_TagString: Untagged
+  m_TagString: Spike
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
