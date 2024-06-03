@@ -2,10 +2,23 @@ using UnityEngine;
 
 public class MovPlataforma1: MonoBehaviour
 {
-    public float speed = 2f; // Speed of the platform's movement
-    public float upperBoundary = 5f; // Upper boundary for the platform's movement
-    public float lowerBoundary = -5f; // Lower boundary for the platform's movement
+     public float speed = 2f; // Speed of the platform's movement
+    public float upperBoundary = 1f; // Upper boundary for the platform's movement
+    public float lowerBoundary = -1f; // Lower boundary for the platform's movement
     private bool movingUp = true; // Direction flag
+
+    private void Start()
+    {
+        // Ensure the initial position is within the boundaries
+        if (transform.position.y > upperBoundary)
+        {
+            transform.position = new Vector3(transform.position.x, upperBoundary, transform.position.z);
+        }
+        else if (transform.position.y < lowerBoundary)
+        {
+            transform.position = new Vector3(transform.position.x, lowerBoundary, transform.position.z);
+        }
+    }
 
     private void Update()
     {
@@ -18,30 +31,23 @@ public class MovPlataforma1: MonoBehaviour
         // Move the platform up or down based on the direction flag
         if (movingUp)
         {
-            Debug.Log("Moving Up");
             transform.Translate(Vector2.up * speed * Time.deltaTime);
         }
         else
         {
-            Debug.Log("Moving Down");
             transform.Translate(Vector2.down * speed * Time.deltaTime);
         }
     }
 
-   private void CheckBoundaries()
+    private void CheckBoundaries()
     {
-        // Log the current position for debugging
-        Debug.Log("Current Y Position: " + transform.position.y);
-
         // Switch direction if the platform reaches the boundaries
         if (transform.position.y >= upperBoundary)
         {
-            Debug.Log("Reached upper boundary. Switching to down.");
             movingUp = false;
         }
         else if (transform.position.y <= lowerBoundary)
         {
-            Debug.Log("Reached lower boundary. Switching to up.");
             movingUp = true;
         }
     }
