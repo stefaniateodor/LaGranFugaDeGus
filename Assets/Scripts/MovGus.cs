@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class MovGus : MonoBehaviour
 {
+        private Rigidbody2D rb; 
+    private AudioSource audioSource;
+    
+    public AudioClip walkSound; 
 
-    private Rigidbody2D rb; 
     private Animator animatorController;
     public float velocidad = 5f;
     public float multiplicador = 5f;
@@ -15,21 +17,17 @@ public class MovGus : MonoBehaviour
     private bool puedoSaltar = true;
     private bool activaSaltoFixed = false;
     public bool miraDerecha = true;
-  
-
-   
-
-
-  
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
-        animatorController = this.GetComponent<Animator>();
-       
-    
-        
+        animatorController = this.GetComponent<Animator>(); 
+       audioSource = GetComponent<AudioSource>();
+        audioSource.playOnAwake = false;
+        audioSource.loop = false;
+        audioSource.clip = walkSound; 
     }
-
+          
+    
     
     void Update()
     {
@@ -47,6 +45,15 @@ public class MovGus : MonoBehaviour
             this.GetComponent<SpriteRenderer>().flipX = false;  
             miraDerecha = true;      
         }
+          // Play walking sound if moving horizontally and not already playing
+        if (movTeclas != 0 && rb.velocity.y == 0 && !audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
+        // Stop walking sound if not moving horizontally
+        else if (movTeclas == 0 && audioSource.isPlaying)
+        {
+            audioSource.Stop(); }
     
     
     //ANIMATOR 
@@ -79,11 +86,12 @@ public class MovGus : MonoBehaviour
            // puedoSaltar = false;
         }
 
-       
-
 
       
     }
+
+
+    
     void FixedUpdate(){
 
         if(activaSaltoFixed == true){
