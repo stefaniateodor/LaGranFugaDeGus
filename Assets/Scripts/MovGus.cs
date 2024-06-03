@@ -79,11 +79,12 @@ public class MovGus : MonoBehaviour
            // puedoSaltar = false;
         }
 
-       
-
 
       
     }
+
+
+    
     void FixedUpdate(){
 
         if(activaSaltoFixed == true){
