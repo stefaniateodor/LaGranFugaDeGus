@@ -15,6 +15,7 @@ public class MovGus : MonoBehaviour
     private bool puedoSaltar = true;
     private bool activaSaltoFixed = false;
     public bool miraDerecha = true;
+    GameObject respawn;
   
 
    
@@ -25,6 +26,8 @@ public class MovGus : MonoBehaviour
     {
         rb = this.GetComponent<Rigidbody2D>();
         animatorController = this.GetComponent<Animator>();
+        respawn = GameObject.Find("Respawn");
+        transform.position = respawn.transform.position;
         
     }
 
@@ -58,7 +61,7 @@ public class MovGus : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, multiplicadorRayo);
     
-Debug.Log("salto!" + hit.collider.gameObject.name);
+        Debug.Log("salto!" + hit.collider.gameObject.name);
         if (hit){
             puedoSaltar=true;
         //Debug.Log(hit.collider.name); 
@@ -77,12 +80,22 @@ Debug.Log("salto!" + hit.collider.gameObject.name);
            // puedoSaltar = false;
         }
 
+        if(transform.position.y <= -7){
+            AudioManager.Instance.SonarClipUnaVez(AudioManager.Instance.fxDead);
+            Respawnear();
+        }
+
+        if(GameManager.vidas <= 0)
+        {
+            GameManager.estoyMuerto = true;
+        }
+
 
 
 
       
     }
-       void FixedUpdate(){
+    void FixedUpdate(){
 
         if(activaSaltoFixed == true){
              rb.AddForce(
@@ -94,5 +107,14 @@ Debug.Log("salto!" + hit.collider.gameObject.name);
        
 
     }
+
+    public void Respawnear(){
+
+        Debug.Log("vidas: " +GameManager.vidas);
+        GameManager.vidas = GameManager.vidas - 1;
+        Debug.Log("vidas: " +GameManager.vidas);
+
+        transform.position = respawn.transform.position;
+   }
     
 }
