@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a39425199d16aa4eb4fdac25cc430eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupSound: {fileID: 8300000, guid: 82d58d77dacb3ea4abffe4e8587bffa7, type: 3}
 --- !u!95 &849783817985754728
 Animator:
   serializedVersion: 5
@@ -173,8 +174,7 @@ Transform:
   m_LocalPosition: {x: 0.18259868, y: 0.47033873, z: -9.907875}
   m_LocalScale: {x: 3.55, y: 3.55, z: 3.55}
   m_ConstrainProportionsScale: 1
-  m_Children:
-  - {fileID: 849783817985754731}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
