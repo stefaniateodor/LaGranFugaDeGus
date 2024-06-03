@@ -80,16 +80,17 @@ public class MovGus : MonoBehaviour
            // puedoSaltar = false;
         }
 
-        if(transform.position.y <= -7){
+       /* if(transform.position.y <= -7){
             AudioManager.Instance.SonarClipUnaVez(AudioManager.Instance.fxDead);
-            Respawnear();
-        }
+           Respawnear();
+        } 
+        */
 
-        if(GameManager.vidas <= 0)
+      /*  if(GameManager.vidas <= 0)
         {
             GameManager.estoyMuerto = true;
         }
-
+*/
 
 
 
@@ -108,13 +109,13 @@ public class MovGus : MonoBehaviour
 
     }
 
-    public void Respawnear(){
+   /* public void Respawnear(){
 
         Debug.Log("vidas: " +GameManager.vidas);
         GameManager.vidas = GameManager.vidas - 1;
         Debug.Log("vidas: " +GameManager.vidas);
 
         transform.position = respawn.transform.position;
-   }
+   }*/
     
 }
