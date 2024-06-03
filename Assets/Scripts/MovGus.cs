@@ -25,8 +25,7 @@ public class MovGus : MonoBehaviour
     {
         rb = this.GetComponent<Rigidbody2D>();
         animatorController = this.GetComponent<Animator>();
-        respawn = GameObject.Find("Respawn");
-        transform.position = respawn.transform.position;
+       
         
     }
 
