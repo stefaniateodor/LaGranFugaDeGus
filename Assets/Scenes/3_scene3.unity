@@ -33076,7 +33076,7 @@ SpriteRenderer:
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &2045545854
->>>>>>> 5961d7e2aff534daeba48c5539193a9e45ee05ae
+ 5961d7e2aff534daeba48c5539193a9e45ee05ae
 Transform:
   m_CorrespondingSourceObject: {fileID: 1722861159561796023, guid: b5c0c0e29c2de8141a0cdcee996ae675, type: 3}
   m_PrefabInstance: {fileID: 1722861159965725897}
