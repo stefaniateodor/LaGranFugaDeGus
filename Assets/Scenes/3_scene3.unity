@@ -374,7 +374,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 108726578}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.65, y: -2.72, z: -10}
+  m_LocalPosition: {x: 39.58, y: -4.43, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -912,8 +912,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  leftBoundary: -5
-  rightBoundary: 5
+  forwardBoundary: 5
+  backwardBoundary: -5
+  detectionRange: 3
+  player: {fileID: 0}
 --- !u!61 &271210055
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1528,8 +1530,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  leftBoundary: -5
-  rightBoundary: 5
+  forwardBoundary: 5
+  backwardBoundary: -5
+  detectionRange: 3
+  player: {fileID: 0}
 --- !u!61 &443853051
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2614,8 +2618,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  oscillationAmplitude: 1
-  oscillationFrequency: 1
+  oscillationAmplitude: 3
+  oscillationFrequency: 3
 --- !u!50 &828110115
 Rigidbody2D:
   serializedVersion: 4
@@ -12600,8 +12604,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  leftBoundary: -5
-  rightBoundary: 5
+  forwardBoundary: 5
+  backwardBoundary: -5
+  detectionRange: 3
+  player: {fileID: 0}
 --- !u!61 &913672466
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28837,7 +28843,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1505414920}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.65, y: -2.72, z: 0}
+  m_LocalPosition: {x: 39.58, y: -4.43, z: 0}
   m_LocalScale: {x: 2.83, y: 2.83, z: 2.83}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -29781,9 +29787,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 499d44f6ec8e61a4ea64a1c23f37d93b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  leftBoundary: -5
-  rightBoundary: 5
+  speed: 3
+  forwardBoundary: 8
+  backwardBoundary: -8
+  detectionRange: 7
+  player: {fileID: 1505414927}
 --- !u!1 &2100969527 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5526920386943853627, guid: fd7961cd923066346ab05e1e03796e67, type: 3}
