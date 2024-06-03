@@ -172,6 +172,7 @@ MonoBehaviour:
   velocidad: 5
   multiplicador: 5
   multiplicadorSalto: 5
+  multiplicadorRayo: 2
   miraDerecha: 1
 --- !u!50 &601615049
 Rigidbody2D:
