@@ -18,10 +18,12 @@ public class MovGusano : MonoBehaviour
         // Move the worm left or right based on the direction flag
         if (movingRight)
         {
+            Debug.Log("Moving Right");
             transform.Translate(Vector2.right * speed * Time.deltaTime);
         }
         else
         {
+            Debug.Log("Moving Left");
             transform.Translate(Vector2.left * speed * Time.deltaTime);
         }
     }
@@ -31,10 +33,12 @@ public class MovGusano : MonoBehaviour
         // Switch direction if the worm reaches the boundaries
         if (transform.position.x >= rightBoundary)
         {
+            Debug.Log("Reached right boundary. Switching to left.");
             movingRight = false;
         }
         else if (transform.position.x <= leftBoundary)
         {
+            Debug.Log("Reached left boundary. Switching to right.");
             movingRight = true;
         }
     }
