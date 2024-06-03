@@ -2,10 +2,13 @@ using UnityEngine;
 
 public class MovGusano : MonoBehaviour
 {
-    public float speed = 2f; // Speed of the worm's movement
-    public float leftBoundary = -5f; // Left boundary for the worm's movement
-    public float rightBoundary = 5f; // Right boundary for the worm's movement
-    private bool movingRight = true; // Direction flag
+    public float speed = 3f; // Speed of the worm's movement
+    public float forwardBoundary = 8f; // Forward boundary for the worm's movement
+    public float backwardBoundary = -8f; // Backward boundary for the worm's movement
+    public float detectionRange = 7f; // Range within which the worm detects the player
+    public Transform player; // Reference to the player's transform
+
+    private bool movingForward = true; // Direction flag
 
     private void Update()
     {
@@ -15,31 +18,40 @@ public class MovGusano : MonoBehaviour
 
     private void Move()
     {
-        // Move the worm left or right based on the direction flag
-        if (movingRight)
+        // Move the worm forward or backward based on the direction flag
+        if (movingForward)
         {
-            Debug.Log("Moving Right");
-            transform.Translate(Vector2.right * speed * Time.deltaTime);
+            transform.Translate(Vector2.up * speed * Time.deltaTime);
         }
         else
         {
-            Debug.Log("Moving Left");
-            transform.Translate(Vector2.left * speed * Time.deltaTime);
+            transform.Translate(Vector2.down * speed * Time.deltaTime);
         }
     }
 
     private void CheckBoundaries()
     {
         // Switch direction if the worm reaches the boundaries
-        if (transform.position.x >= rightBoundary)
+        if (transform.position.y >= forwardBoundary)
         {
-            Debug.Log("Reached right boundary. Switching to left.");
-            movingRight = false;
+            movingForward = false;
         }
-        else if (transform.position.x <= leftBoundary)
+        else if (transform.position.y <= backwardBoundary)
         {
-            Debug.Log("Reached left boundary. Switching to right.");
-            movingRight = true;
+            movingForward = true;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        // Check if the player is within the detection range
+        if (player != null && Vector2.Distance(transform.position, player.position) <= detectionRange)
+        {
+            // Calculate the direction towards the player
+            Vector2 direction = (player.position - transform.position).normalized;
+
+            // Move the worm towards the player
+            transform.Translate(direction * speed * Time.fixedDeltaTime);
         }
     }
 }
