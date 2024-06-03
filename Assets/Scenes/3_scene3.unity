@@ -31421,6 +31421,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnPoint: {fileID: 1434919355}
+<<<<<<< HEAD
+--- !u!1 &1598620488
+=======
 --- !u!82 &1505414931
 AudioSource:
   m_ObjectHideFlags: 0
@@ -31518,6 +31521,7 @@ AudioSource:
     m_PostInfinity: 2
     m_RotationOrder: 4
 --- !u!1 &1505499739
+>>>>>>> a2bff372b6e42bc566119facbadc730de17c48f6
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -32740,6 +32744,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd7961cd923066346ab05e1e03796e67, type: 3}
+<<<<<<< HEAD
 --- !u!1001 &1965720749
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32870,6 +32875,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: -8435245712485981826, guid: d55fcf56780e4b24eaa154ceecccf913, type: 3}
+=======
+<<<<<<< HEAD
+--- !u!4 &2045545854 stripped
+=======
+>>>>>>> a2bff372b6e42bc566119facbadc730de17c48f6
 --- !u!1 &1988075269
 GameObject:
   m_ObjectHideFlags: 0
@@ -33076,13 +33086,13 @@ SpriteRenderer:
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &2045545854
- 5961d7e2aff534daeba48c5539193a9e45ee05ae
+>>>>>>> 5961d7e2aff534daeba48c5539193a9e45ee05ae
 Transform:
   m_CorrespondingSourceObject: {fileID: 1722861159561796023, guid: b5c0c0e29c2de8141a0cdcee996ae675, type: 3}
   m_PrefabInstance: {fileID: 1722861159965725897}
   m_PrefabAsset: {fileID: 0}
- HEAD
-
+<<<<<<< HEAD
+=======
   m_GameObject: {fileID: 2045545851}
   m_LocalRotation: {x: -0, y: -0, z: 0.028341332, w: -0.9995983}
   m_LocalPosition: {x: 42.02, y: -5.62, z: -1.6678327}
