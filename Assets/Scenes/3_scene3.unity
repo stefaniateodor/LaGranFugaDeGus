@@ -25558,13 +25558,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidad: 5
-<<<<<<< HEAD
+ HEAD
   multiplicador: 7
   multiplicadorSalto: 8
-=======
-  multiplicador: 5
-  multiplicadorSalto: 10
->>>>>>> bd84caa39d8c30be34c515294d47d32c5a95dced
+
+  
   multiplicadorRayo: 1
   miraDerecha: 1
 --- !u!114 &1505414929
