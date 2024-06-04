@@ -8,10 +8,10 @@ public class MovGus : MonoBehaviour
     
 
     private Animator animatorController;
-    public float velocidad = 3f;
-    public float multiplicador = 2f;
-    public float multiplicadorSalto = 2f;
-    public float multiplicadorRayo = 2f;
+    public float velocidad = 7f;
+    public float multiplicador = 4f;
+    public float multiplicadorSalto = 5f;
+    public float multiplicadorRayo = 4f;
     float movTeclas;
     private bool puedoSaltar = true;
     private bool activaSaltoFixed = false;
