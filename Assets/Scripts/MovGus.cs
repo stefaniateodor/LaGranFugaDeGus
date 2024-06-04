@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 public class MovGus : MonoBehaviour
 {
         private Rigidbody2D rb; 
@@ -16,11 +17,20 @@ public class MovGus : MonoBehaviour
     private bool puedoSaltar = true;
     private bool activaSaltoFixed = false;
     public bool miraDerecha = true;
+
+//VIDAS
+    public int maxLives = 4;
+    private int currentLives;
+
+    public Image[] hearts;
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
         animatorController = this.GetComponent<Animator>(); 
       
+
+        currentLives = maxLives;
+        UpdateHeartsUI();
     }
           
     
@@ -95,5 +105,36 @@ public class MovGus : MonoBehaviour
     }
 
 
-    
+    private void HandleRespawn()
+    {
+        if (currentLives > 0)
+        {
+            currentLives--;
+            Debug.Log("Respawn! Lives left: " + currentLives);
+            UpdateHeartsUI();
+            // Reset character position or other respawn logic
+            transform.position = Vector3.zero; // Example respawn position
+        }
+        else
+        {
+            Debug.Log("Game Over!");
+            // Handle game over logic
+            // For example, disable player controls or show game over screen
+        }
+    }
+
+    private void UpdateHeartsUI()
+    {
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            if (i < currentLives)
+            {
+                hearts[i].enabled = true;
+            }
+            else
+            {
+                hearts[i].enabled = false;
+            }
+        }
+    }
 }
