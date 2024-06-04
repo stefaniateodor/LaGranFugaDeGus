@@ -18,12 +18,12 @@ public class MovGus : MonoBehaviour
     private bool activaSaltoFixed = false;
     private float movTeclas;
 
-    // Life system
+    // VIDAS
     public int maxLives = 4;
     private int currentLives;
     public Image[] hearts;
 
-    // Starting position
+    // Start
     private Vector3 startingPosition;
 
     void Start()
@@ -41,7 +41,7 @@ public class MovGus : MonoBehaviour
 
     void Update()
     {
-        // Handle movement
+        
         movTeclas = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(movTeclas * multiplicador, rb.velocity.y);
 
@@ -56,10 +56,10 @@ public class MovGus : MonoBehaviour
             miraDerecha = true;
         }
 
-        // Handle animation
+       
         animatorController.SetBool("activaCamina", movTeclas != 0);
 
-        // Handle jumping
+        // SALTO
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, multiplicadorRayo);
         if (hit.collider != null)
         {
@@ -88,7 +88,7 @@ public class MovGus : MonoBehaviour
         }
     }
 
-    // Handle collision with dangerous objects
+    // COLISION
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Spike"))
@@ -104,12 +104,12 @@ public class MovGus : MonoBehaviour
             currentLives--;
             Debug.Log("Respawn! Lives left: " + currentLives);
             UpdateHeartsUI();
-            transform.position = startingPosition; // Respawn at the starting position
+            transform.position = startingPosition; // Respawn
         }
         else
         {
             Debug.Log("Game Over!");
-            // Handle game over logic (disable player controls, show game over screen, etc.)
+            
         }
     }
 
