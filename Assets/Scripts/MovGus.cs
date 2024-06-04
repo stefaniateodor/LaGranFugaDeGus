@@ -2,108 +2,94 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class MovGus : MonoBehaviour
 {
-        private Rigidbody2D rb; 
+    private Rigidbody2D rb; 
     private AudioSource audioSource;
-    
-
     private Animator animatorController;
+
     public float velocidad = 7f;
     public float multiplicador = 4f;
     public float multiplicadorSalto = 5f;
     public float multiplicadorRayo = 4f;
-    float movTeclas;
-    private bool puedoSaltar = true;
-    private bool activaSaltoFixed = false;
     public bool miraDerecha = true;
 
-//VIDAS
+    private bool puedoSaltar = true;
+    private bool activaSaltoFixed = false;
+    float movTeclas;
+
+    // Life system
     public int maxLives = 4;
     private int currentLives;
-
     public Image[] hearts;
+
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
-        animatorController = this.GetComponent<Animator>(); 
-      
+        animatorController = this.GetComponent<Animator>();
 
         currentLives = maxLives;
         UpdateHeartsUI();
     }
-          
-    
-    
+
     void Update()
     {
-          //MOVIMIENTO 
-        float movTeclas = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(movTeclas*multiplicador, rb.velocity.y);
+        // Handle movement
+        movTeclas = Input.GetAxis("Horizontal");
+        rb.velocity = new Vector2(movTeclas * multiplicador, rb.velocity.y);
 
-   
-
-        if (movTeclas < 0){
-            this.GetComponent<SpriteRenderer>().flipX = true;  
-            miraDerecha = false;      
-        }else if (movTeclas > 0){       
-    
-            this.GetComponent<SpriteRenderer>().flipX = false;  
-            miraDerecha = true;      
+        if (movTeclas < 0)
+        {
+            this.GetComponent<SpriteRenderer>().flipX = true;
+            miraDerecha = false;
         }
-       
-      
-    
-    
-    //ANIMATOR 
-        if(movTeclas != 0){
-            animatorController.SetBool("activaCamina", true);
-        }else{
-            animatorController.SetBool("activaCamina", false);
+        else if (movTeclas > 0)
+        {
+            this.GetComponent<SpriteRenderer>().flipX = false;
+            miraDerecha = true;
         }
 
-    //SALTO
+        // Handle animation
+        animatorController.SetBool("activaCamina", movTeclas != 0);
 
+        // Handle jumping
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, multiplicadorRayo);
-    
-        Debug.Log("salto!" + hit.collider.gameObject.name);
-        if (hit){
-            puedoSaltar=true;
-        //Debug.Log(hit.collider.name); 
-        
-        }else{
-            puedoSaltar=false;
+        if (hit.collider != null)
+        {
+            puedoSaltar = true;
+            Debug.Log("Raycast hit: " + hit.collider.gameObject.name);
+        }
+        else
+        {
+            puedoSaltar = false;
+            Debug.Log("Raycast did not hit anything.");
         }
 
-        //salto
-        if(Input.GetKeyDown(KeyCode.Space) && puedoSaltar){
-            Debug.Log("jump");
-            rb.AddForce( 
-                new Vector2(0,multiplicadorSalto),
-                ForceMode2D.Impulse
-            );
-           // puedoSaltar = false;
+        if (Input.GetKeyDown(KeyCode.Space) && puedoSaltar)
+        {
+            rb.AddForce(new Vector2(0, multiplicadorSalto), ForceMode2D.Impulse);
+            Debug.Log("Jump");
         }
-
-
-      
     }
 
-
-    
-    void FixedUpdate(){
-
-        if(activaSaltoFixed == true){
-             rb.AddForce(
-                new Vector2(0,multiplicadorSalto),
-                ForceMode2D.Impulse
-            );
+    void FixedUpdate()
+    {
+        if (activaSaltoFixed)
+        {
+            rb.AddForce(new Vector2(0, multiplicadorSalto), ForceMode2D.Impulse);
             activaSaltoFixed = false;
         }
-       
-
     }
 
+    // Handle collision with dangerous objects
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Spike"))
+        {
+            HandleRespawn();
+        }
+    }
 
     private void HandleRespawn()
     {
@@ -112,14 +98,12 @@ public class MovGus : MonoBehaviour
             currentLives--;
             Debug.Log("Respawn! Lives left: " + currentLives);
             UpdateHeartsUI();
-            // Reset character position or other respawn logic
             transform.position = Vector3.zero; // Example respawn position
         }
         else
         {
             Debug.Log("Game Over!");
-            // Handle game over logic
-            // For example, disable player controls or show game over screen
+            // Handle game over logic (disable player controls, show game over screen, etc.)
         }
     }
 
@@ -127,14 +111,7 @@ public class MovGus : MonoBehaviour
     {
         for (int i = 0; i < hearts.Length; i++)
         {
-            if (i < currentLives)
-            {
-                hearts[i].enabled = true;
-            }
-            else
-            {
-                hearts[i].enabled = false;
-            }
+            hearts[i].enabled = i < currentLives;
         }
     }
 }
