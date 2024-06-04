@@ -31443,11 +31443,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 008392de362c4a444aa8172d022e0fd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSound: {fileID: 0}
-  velocidad: 5
-  multiplicador: 5
-  multiplicadorSalto: 5
-  multiplicadorRayo: 2
+  walkSound: {fileID: 8300000, guid: 2aac478d250d6044ea8fbeb33eb2b1f9, type: 3}
+  velocidad: 7
+  multiplicador: 4
+  multiplicadorSalto: 9
+  multiplicadorRayo: 10
   miraDerecha: 1
 --- !u!114 &1505414929
 MonoBehaviour:
