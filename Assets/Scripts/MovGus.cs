@@ -6,13 +6,12 @@ public class MovGus : MonoBehaviour
         private Rigidbody2D rb; 
     private AudioSource audioSource;
     
-    public AudioClip walkSound; 
 
     private Animator animatorController;
-    public float velocidad = 5f;
-    public float multiplicador = 5f;
-    public float multiplicadorSalto = 5f;
-    public float multiplicadorRayo = 2f;
+    public float velocidad = 7f;
+    public float multiplicador = 4f;
+    public float multiplicadorSalto = 9f;
+    public float multiplicadorRayo = 4f;
     float movTeclas;
     private bool puedoSaltar = true;
     private bool activaSaltoFixed = false;
@@ -21,10 +20,7 @@ public class MovGus : MonoBehaviour
     {
         rb = this.GetComponent<Rigidbody2D>();
         animatorController = this.GetComponent<Animator>(); 
-       audioSource = GetComponent<AudioSource>();
-        audioSource.playOnAwake = false;
-        audioSource.loop = false;
-        audioSource.clip = walkSound; 
+      
     }
           
     
@@ -45,15 +41,8 @@ public class MovGus : MonoBehaviour
             this.GetComponent<SpriteRenderer>().flipX = false;  
             miraDerecha = true;      
         }
-          // Play walking sound if moving horizontally and not already playing
-        if (movTeclas != 0 && rb.velocity.y == 0 && !audioSource.isPlaying)
-        {
-            audioSource.Play();
-        }
-        // Stop walking sound if not moving horizontally
-        else if (movTeclas == 0 && audioSource.isPlaying)
-        {
-            audioSource.Stop(); }
+       
+      
     
     
     //ANIMATOR 
