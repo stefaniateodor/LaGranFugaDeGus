@@ -18,13 +18,16 @@ public class MovGus : MonoBehaviour
     private bool activaSaltoFixed = false;
     private float movTeclas;
 
-    // VIDAS
+    // Life system
     public int maxLives = 4;
     private int currentLives;
     public Image[] hearts;
 
-    // Start
+    // Starting position
     private Vector3 startingPosition;
+
+    // Game over UI
+    public GameObject gameOverPanel;
 
     void Start()
     {
@@ -37,45 +40,54 @@ public class MovGus : MonoBehaviour
         // Initialize lives and update UI
         currentLives = maxLives;
         UpdateHeartsUI();
+
+        // Ensure game over panel is hidden at start
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(false);
+        }
     }
 
     void Update()
     {
-        
-        movTeclas = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(movTeclas * multiplicador, rb.velocity.y);
+        if (currentLives > 0)
+        {
+            // Handle movement
+            movTeclas = Input.GetAxis("Horizontal");
+            rb.velocity = new Vector2(movTeclas * multiplicador, rb.velocity.y);
 
-        if (movTeclas < 0)
-        {
-            GetComponent<SpriteRenderer>().flipX = true;
-            miraDerecha = false;
-        }
-        else if (movTeclas > 0)
-        {
-            GetComponent<SpriteRenderer>().flipX = false;
-            miraDerecha = true;
-        }
+            if (movTeclas < 0)
+            {
+                GetComponent<SpriteRenderer>().flipX = true;
+                miraDerecha = false;
+            }
+            else if (movTeclas > 0)
+            {
+                GetComponent<SpriteRenderer>().flipX = false;
+                miraDerecha = true;
+            }
 
-       
-        animatorController.SetBool("activaCamina", movTeclas != 0);
+            // Handle animation
+            animatorController.SetBool("activaCamina", movTeclas != 0);
 
-        // SALTO
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, multiplicadorRayo);
-        if (hit.collider != null)
-        {
-            puedoSaltar = true;
-            Debug.Log("Raycast hit: " + hit.collider.gameObject.name);
-        }
-        else
-        {
-            puedoSaltar = false;
-            Debug.Log("Raycast did not hit anything.");
-        }
+            // Handle jumping
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, multiplicadorRayo);
+            if (hit.collider != null)
+            {
+                puedoSaltar = true;
+                Debug.Log("Raycast hit: " + hit.collider.gameObject.name);
+            }
+            else
+            {
+                puedoSaltar = false;
+                Debug.Log("Raycast did not hit anything.");
+            }
 
-        if (Input.GetKeyDown(KeyCode.Space) && puedoSaltar)
-        {
-            rb.AddForce(new Vector2(0, multiplicadorSalto), ForceMode2D.Impulse);
-            Debug.Log("Jump");
+            if (Input.GetKeyDown(KeyCode.Space) && puedoSaltar)
+            {
+                rb.AddForce(new Vector2(0, multiplicadorSalto), ForceMode2D.Impulse);
+                Debug.Log("Jump");
+            }
         }
     }
 
@@ -88,7 +100,7 @@ public class MovGus : MonoBehaviour
         }
     }
 
-    // COLISION
+    // Handle collision with dangerous objects
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Spike"))
@@ -104,12 +116,12 @@ public class MovGus : MonoBehaviour
             currentLives--;
             Debug.Log("Respawn! Lives left: " + currentLives);
             UpdateHeartsUI();
-            transform.position = startingPosition; // Respawn
+            transform.position = startingPosition; // Respawn at the starting position
         }
         else
         {
             Debug.Log("Game Over!");
-            
+            ShowGameOverScreen();
         }
     }
 
@@ -120,4 +132,15 @@ public class MovGus : MonoBehaviour
             hearts[i].enabled = i < currentLives;
         }
     }
+
+    private void ShowGameOverScreen()
+    {
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(true);
+        }
+        // Optionally, disable character controls
+        enabled = false; // This will disable the MovGus script
+    }
 }
+
