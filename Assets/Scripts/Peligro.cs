@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 
-public class Peligro : MonoBehaviour
+public class Peligro: MonoBehaviour
 {
     // Called when the character enters a trigger collider
     public Transform RespawnPoint;
