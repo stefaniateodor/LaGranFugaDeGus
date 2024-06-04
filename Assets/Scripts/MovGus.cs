@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class MovGus : MonoBehaviour
 {
-    private Rigidbody2D rb; 
-    private AudioSource audioSource;
+    private Rigidbody2D rb;
     private Animator animatorController;
 
     public float velocidad = 7f;
@@ -17,18 +16,25 @@ public class MovGus : MonoBehaviour
 
     private bool puedoSaltar = true;
     private bool activaSaltoFixed = false;
-    float movTeclas;
+    private float movTeclas;
 
     // Life system
     public int maxLives = 4;
     private int currentLives;
     public Image[] hearts;
 
+    // Starting position
+    private Vector3 startingPosition;
+
     void Start()
     {
-        rb = this.GetComponent<Rigidbody2D>();
-        animatorController = this.GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+        animatorController = GetComponent<Animator>();
 
+        // Save the starting position
+        startingPosition = transform.position;
+
+        // Initialize lives and update UI
         currentLives = maxLives;
         UpdateHeartsUI();
     }
@@ -41,12 +47,12 @@ public class MovGus : MonoBehaviour
 
         if (movTeclas < 0)
         {
-            this.GetComponent<SpriteRenderer>().flipX = true;
+            GetComponent<SpriteRenderer>().flipX = true;
             miraDerecha = false;
         }
         else if (movTeclas > 0)
         {
-            this.GetComponent<SpriteRenderer>().flipX = false;
+            GetComponent<SpriteRenderer>().flipX = false;
             miraDerecha = true;
         }
 
@@ -98,7 +104,7 @@ public class MovGus : MonoBehaviour
             currentLives--;
             Debug.Log("Respawn! Lives left: " + currentLives);
             UpdateHeartsUI();
-            transform.position = Vector3.zero; // Example respawn position
+            transform.position = startingPosition; // Respawn at the starting position
         }
         else
         {
