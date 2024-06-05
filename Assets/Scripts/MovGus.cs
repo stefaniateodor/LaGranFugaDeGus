@@ -117,10 +117,7 @@ public class MovGus : MonoBehaviour
         {
             LoadNextLevel();
         }
-        else if (collision.gameObject.CompareTag("Pipa"))
-        {
-            CollectSeed(collision.gameObject);
-        }
+       
     }
 
     private void HandleRespawn()
