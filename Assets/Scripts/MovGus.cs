@@ -31,8 +31,7 @@ public class MovGus : MonoBehaviour
     public GameObject gameOverPanel;
 
     // Seed counter
-    private int seedCount;
-    public Text seedCounterText;
+   
 
     void Start()
     {
@@ -52,9 +51,7 @@ public class MovGus : MonoBehaviour
             gameOverPanel.SetActive(false);
         }
 
-        // Initialize seed counter
-        seedCount = 0;
-        UpdateSeedCounterUI();
+        
     }
 
     void Update()
@@ -120,7 +117,7 @@ public class MovGus : MonoBehaviour
         {
             LoadNextLevel();
         }
-        else if (collision.gameObject.CompareTag("Seed"))
+        else if (collision.gameObject.CompareTag("Pipa"))
         {
             CollectSeed(collision.gameObject);
         }
@@ -182,18 +179,5 @@ public class MovGus : MonoBehaviour
         }
     }
 
-    private void CollectSeed(GameObject seed)
-    {
-        seedCount++;
-        UpdateSeedCounterUI();
-        Destroy(seed);
-    }
-
-    private void UpdateSeedCounterUI()
-    {
-        if (seedCounterText != null)
-        {
-            seedCounterText.text = "Seeds: " + seedCount;
-        }
-    }
+   
 }
