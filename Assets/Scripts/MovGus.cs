@@ -29,7 +29,7 @@ public class MovGus : MonoBehaviour
 
     // Game over UI
     public GameObject gameOverPanel;
-
+   
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -101,7 +101,7 @@ public class MovGus : MonoBehaviour
         }
     }
 
-    // COLLISION CON OBJEtos
+    // Handle collision with dangerous objects and seeds
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Spike"))
@@ -112,6 +112,7 @@ public class MovGus : MonoBehaviour
         {
             LoadNextLevel();
         }
+        
     }
 
     private void HandleRespawn()
@@ -121,7 +122,7 @@ public class MovGus : MonoBehaviour
             currentLives--;
             Debug.Log("Respawn! Lives left: " + currentLives);
             UpdateHeartsUI();
-            transform.position = startingPosition; // RESPAWN EN EL PRINCIPIO
+            transform.position = startingPosition; // Respawn at the starting position
         }
         else
         {
@@ -140,17 +141,25 @@ public class MovGus : MonoBehaviour
 
     private void ShowGameOverScreen()
     {
+        // Reset the velocity and disable character controls immediately
+        rb.velocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+
+        // Optionally, disable the Rigidbody2D to prevent any further movement
+        rb.isKinematic = true;
+
         if (gameOverPanel != null)
         {
             gameOverPanel.SetActive(true);
         }
-        // Optionally, disable character controls
+
+        // Disable character controls
         enabled = false; // This will disable the MovGus script
     }
 
     private void LoadNextLevel()
     {
-        //ESCENA SIGUIENTE
+        // Load the next scene
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
@@ -159,7 +168,8 @@ public class MovGus : MonoBehaviour
         else
         {
             Debug.Log("You have completed all levels!");
-            
         }
     }
+
+   
 }
