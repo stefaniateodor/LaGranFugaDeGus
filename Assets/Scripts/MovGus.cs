@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MovGus : MonoBehaviour
 {
@@ -100,12 +101,16 @@ public class MovGus : MonoBehaviour
         }
     }
 
-    // Handle collision with dangerous objects
+    // Handle collision with dangerous objects and the flag
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Spike"))
         {
             HandleRespawn();
+        }
+        else if (collision.gameObject.CompareTag("Flag"))
+        {
+            LoadNextLevel();
         }
     }
 
@@ -142,5 +147,19 @@ public class MovGus : MonoBehaviour
         // Optionally, disable character controls
         enabled = false; // This will disable the MovGus script
     }
-}
 
+    private void LoadNextLevel()
+    {
+        // Load the next scene in the build settings
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextSceneIndex);
+        }
+        else
+        {
+            Debug.Log("You have completed all levels!");
+            // Optionally, handle what happens when all levels are completed
+        }
+    }
+}
