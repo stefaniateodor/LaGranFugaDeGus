@@ -29,7 +29,15 @@ public class MovGus : MonoBehaviour
 
     // Game over UI
     public GameObject gameOverPanel;
+<<<<<<< HEAD
    
+=======
+
+    // Seed counter
+    private int seedCount;
+    public Text seedCounterText;
+
+>>>>>>> 6b10c468ee56c2cd577f1e3f4c783c973cf34795
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -47,6 +55,10 @@ public class MovGus : MonoBehaviour
         {
             gameOverPanel.SetActive(false);
         }
+
+        // Initialize seed counter
+        seedCount = 0;
+        UpdateSeedCounterUI();
     }
 
     void Update()
@@ -112,7 +124,14 @@ public class MovGus : MonoBehaviour
         {
             LoadNextLevel();
         }
+<<<<<<< HEAD
         
+=======
+        else if (collision.gameObject.CompareTag("Seed"))
+        {
+            CollectSeed(collision.gameObject);
+        }
+>>>>>>> 6b10c468ee56c2cd577f1e3f4c783c973cf34795
     }
 
     private void HandleRespawn()
@@ -168,6 +187,24 @@ public class MovGus : MonoBehaviour
         else
         {
             Debug.Log("You have completed all levels!");
+<<<<<<< HEAD
+=======
+        }
+    }
+
+    private void CollectSeed(GameObject seed)
+    {
+        seedCount++;
+        UpdateSeedCounterUI();
+        Destroy(seed);
+    }
+
+    private void UpdateSeedCounterUI()
+    {
+        if (seedCounterText != null)
+        {
+            seedCounterText.text = "Seeds: " + seedCount;
+>>>>>>> 6b10c468ee56c2cd577f1e3f4c783c973cf34795
         }
     }
 
