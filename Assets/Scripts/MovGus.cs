@@ -1,110 +1,165 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 public class MovGus : MonoBehaviour
 {
-        private Rigidbody2D rb; 
-    private AudioSource audioSource;
-    
-    public AudioClip walkSound; 
-
+    private Rigidbody2D rb;
     private Animator animatorController;
-    public float velocidad = 5f;
-    public float multiplicador = 5f;
+
+    public float velocidad = 7f;
+    public float multiplicador = 4f;
     public float multiplicadorSalto = 5f;
-    public float multiplicadorRayo = 2f;
-    float movTeclas;
+    public float multiplicadorRayo = 4f;
+    public bool miraDerecha = true;
+
     private bool puedoSaltar = true;
     private bool activaSaltoFixed = false;
-    public bool miraDerecha = true;
+    private float movTeclas;
+
+    // Life system
+    public int maxLives = 4;
+    private int currentLives;
+    public Image[] hearts;
+
+    // Starting position
+    private Vector3 startingPosition;
+
+    // Game over UI
+    public GameObject gameOverPanel;
+
     void Start()
     {
-        rb = this.GetComponent<Rigidbody2D>();
-        animatorController = this.GetComponent<Animator>(); 
-       audioSource = GetComponent<AudioSource>();
-        audioSource.playOnAwake = false;
-        audioSource.loop = false;
-        audioSource.clip = walkSound; 
+        rb = GetComponent<Rigidbody2D>();
+        animatorController = GetComponent<Animator>();
+
+        // Save the starting position
+        startingPosition = transform.position;
+
+        // Initialize lives and update UI
+        currentLives = maxLives;
+        UpdateHeartsUI();
+
+        // Ensure game over panel is hidden at start
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(false);
+        }
     }
-          
-    
-    
+
     void Update()
     {
-          //MOVIMIENTO 
-        float movTeclas = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(movTeclas*multiplicador, rb.velocity.y);
-
-   
-
-        if (movTeclas < 0){
-            this.GetComponent<SpriteRenderer>().flipX = true;  
-            miraDerecha = false;      
-        }else if (movTeclas > 0){       
-    
-            this.GetComponent<SpriteRenderer>().flipX = false;  
-            miraDerecha = true;      
-        }
-          // Play walking sound if moving horizontally and not already playing
-        if (movTeclas != 0 && rb.velocity.y == 0 && !audioSource.isPlaying)
+        if (currentLives > 0)
         {
-            audioSource.Play();
+            // Handle movement
+            movTeclas = Input.GetAxis("Horizontal");
+            rb.velocity = new Vector2(movTeclas * multiplicador, rb.velocity.y);
+
+            if (movTeclas < 0)
+            {
+                GetComponent<SpriteRenderer>().flipX = true;
+                miraDerecha = false;
+            }
+            else if (movTeclas > 0)
+            {
+                GetComponent<SpriteRenderer>().flipX = false;
+                miraDerecha = true;
+            }
+
+            // Handle animation
+            animatorController.SetBool("activaCamina", movTeclas != 0);
+
+            // Handle jumping
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, multiplicadorRayo);
+            if (hit.collider != null)
+            {
+                puedoSaltar = true;
+                Debug.Log("Raycast hit: " + hit.collider.gameObject.name);
+            }
+            else
+            {
+                puedoSaltar = false;
+                Debug.Log("Raycast did not hit anything.");
+            }
+
+            if (Input.GetKeyDown(KeyCode.Space) && puedoSaltar)
+            {
+                rb.AddForce(new Vector2(0, multiplicadorSalto), ForceMode2D.Impulse);
+                Debug.Log("Jump");
+            }
         }
-        // Stop walking sound if not moving horizontally
-        else if (movTeclas == 0 && audioSource.isPlaying)
-        {
-            audioSource.Stop(); }
-    
-    
-    //ANIMATOR 
-        if(movTeclas != 0){
-            animatorController.SetBool("activaCamina", true);
-        }else{
-            animatorController.SetBool("activaCamina", false);
-        }
-
-    //SALTO
-
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, multiplicadorRayo);
-    
-        Debug.Log("salto!" + hit.collider.gameObject.name);
-        if (hit){
-            puedoSaltar=true;
-        //Debug.Log(hit.collider.name); 
-        
-        }else{
-            puedoSaltar=false;
-        }
-
-        //salto
-        if(Input.GetKeyDown(KeyCode.Space) && puedoSaltar){
-            Debug.Log("jump");
-            rb.AddForce( 
-                new Vector2(0,multiplicadorSalto),
-                ForceMode2D.Impulse
-            );
-           // puedoSaltar = false;
-        }
-
-
-      
     }
 
-
-    
-    void FixedUpdate(){
-
-        if(activaSaltoFixed == true){
-             rb.AddForce(
-                new Vector2(0,multiplicadorSalto),
-                ForceMode2D.Impulse
-            );
+    void FixedUpdate()
+    {
+        if (activaSaltoFixed)
+        {
+            rb.AddForce(new Vector2(0, multiplicadorSalto), ForceMode2D.Impulse);
             activaSaltoFixed = false;
         }
-       
-
     }
 
+    // COLLISION CON OBJEtos
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Spike"))
+        {
+            HandleRespawn();
+        }
+        else if (collision.gameObject.CompareTag("Flag"))
+        {
+            LoadNextLevel();
+        }
+    }
 
-    
+    private void HandleRespawn()
+    {
+        if (currentLives > 0)
+        {
+            currentLives--;
+            Debug.Log("Respawn! Lives left: " + currentLives);
+            UpdateHeartsUI();
+            transform.position = startingPosition; // RESPAWN EN EL PRINCIPIO
+        }
+        else
+        {
+            Debug.Log("Game Over!");
+            ShowGameOverScreen();
+        }
+    }
+
+    private void UpdateHeartsUI()
+    {
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            hearts[i].enabled = i < currentLives;
+        }
+    }
+
+    private void ShowGameOverScreen()
+    {
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(true);
+        }
+        // Optionally, disable character controls
+        enabled = false; // This will disable the MovGus script
+    }
+
+    private void LoadNextLevel()
+    {
+        //ESCENA SIGUIENTE
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextSceneIndex);
+        }
+        else
+        {
+            Debug.Log("You have completed all levels!");
+            
+        }
+    }
 }
