@@ -8,7 +8,7 @@ public class fuegoscript : MonoBehaviour
 
     bool bolaDerecha = true;
     float tiempoDestruccion=3.0f;
-    public float speedBala=0.2f;
+    public float speedBala=5f;
     float queHoraEs;
     // Start is called before the first frame update
     void Start()
