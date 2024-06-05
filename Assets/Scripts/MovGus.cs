@@ -19,7 +19,7 @@ public class MovGus : MonoBehaviour
     private float movTeclas;
 
     // Life system
-    public int maxLives = 4;
+    public int maxLives = 3;
     private int currentLives;
     public Image[] hearts;
 
