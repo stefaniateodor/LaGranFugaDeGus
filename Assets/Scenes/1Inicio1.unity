@@ -1569,12 +1569,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 008392de362c4a444aa8172d022e0fd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSound: {fileID: 8300000, guid: 2aac478d250d6044ea8fbeb33eb2b1f9, type: 3}
   velocidad: 7
   multiplicador: 4
   multiplicadorSalto: 9
   multiplicadorRayo: 4
   miraDerecha: 1
+  maxLives: 4
+  hearts: []
+  gameOverPanel: {fileID: 0}
 --- !u!50 &943649155
 Rigidbody2D:
   serializedVersion: 4
@@ -1876,9 +1878,25 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1722861159561795915, guid: b5c0c0e29c2de8141a0cdcee996ae675, type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1722861159561795915, guid: b5c0c0e29c2de8141a0cdcee996ae675, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 943649152}
+    - target: {fileID: 1722861159561795915, guid: b5c0c0e29c2de8141a0cdcee996ae675, type: 3}
+      propertyPath: detectionRange
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1722861159561795915, guid: b5c0c0e29c2de8141a0cdcee996ae675, type: 3}
+      propertyPath: forwardBoundary
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1722861159561795915, guid: b5c0c0e29c2de8141a0cdcee996ae675, type: 3}
+      propertyPath: backwardBoundary
+      value: -3
+      objectReference: {fileID: 0}
     - target: {fileID: 1722861159561796018, guid: b5c0c0e29c2de8141a0cdcee996ae675, type: 3}
       propertyPath: m_Name
       value: Gusano 1
@@ -1888,12 +1906,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1722861159561796023, guid: b5c0c0e29c2de8141a0cdcee996ae675, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -5.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 1722861159561796023, guid: b5c0c0e29c2de8141a0cdcee996ae675, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5.875932
+      objectReference: {fileID: 0}
+    - target: {fileID: 1722861159561796023, guid: b5c0c0e29c2de8141a0cdcee996ae675, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8070676
+      objectReference: {fileID: 0}
+    - target: {fileID: 1722861159561796023, guid: b5c0c0e29c2de8141a0cdcee996ae675, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.8010685
+      value: 2.42
       objectReference: {fileID: 0}
     - target: {fileID: 1722861159561796023, guid: b5c0c0e29c2de8141a0cdcee996ae675, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.251507
+      value: -6.49
       objectReference: {fileID: 0}
     - target: {fileID: 1722861159561796023, guid: b5c0c0e29c2de8141a0cdcee996ae675, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1926,6 +1956,10 @@ PrefabInstance:
     - target: {fileID: 1722861159561796023, guid: b5c0c0e29c2de8141a0cdcee996ae675, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.091
+      objectReference: {fileID: 0}
+    - target: {fileID: 1722861159561796023, guid: b5c0c0e29c2de8141a0cdcee996ae675, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5c0c0e29c2de8141a0cdcee996ae675, type: 3}
