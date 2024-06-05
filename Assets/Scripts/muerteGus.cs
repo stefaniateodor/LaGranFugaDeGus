@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Death : MonoBehaviour
+public class muerteGus : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -16,17 +16,21 @@ public class Death : MonoBehaviour
         
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("agua"))
         {
             Die();
         }
     }
-
     void Die()
     {   
         Debug.Log("Gus a muerto!");
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
     }
+
+
+    
+    
+
 }
