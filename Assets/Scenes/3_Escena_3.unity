@@ -627,6 +627,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ba6e68cda170dc4ab390c540deb9a62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 7
+  oscillationAmplitude: 2
+  oscillationFrequency: 2
 --- !u!1 &1505414920
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,7 +666,11 @@ MonoBehaviour:
   velocidad: 5
   multiplicador: 5
   multiplicadorSalto: 5
+  multiplicadorRayo: 4
   miraDerecha: 1
+  maxLives: 3
+  hearts: []
+  gameOverPanel: {fileID: 0}
 --- !u!50 &1505414923
 Rigidbody2D:
   serializedVersion: 4
