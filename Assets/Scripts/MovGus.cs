@@ -101,7 +101,7 @@ public class MovGus : MonoBehaviour
         }
     }
 
-    // COLLISION CON OBJETOS
+    // COLLISION CON OBJEtos
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Spike"))
