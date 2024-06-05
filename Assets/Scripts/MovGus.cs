@@ -101,7 +101,7 @@ public class MovGus : MonoBehaviour
         }
     }
 
-    // Handle collision with dangerous objects and the flag
+    // COLLISION CON OBJETOS
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Spike"))
@@ -121,7 +121,7 @@ public class MovGus : MonoBehaviour
             currentLives--;
             Debug.Log("Respawn! Lives left: " + currentLives);
             UpdateHeartsUI();
-            transform.position = startingPosition; // Respawn at the starting position
+            transform.position = startingPosition; // RESPAWN EN EL PRINCIPIO
         }
         else
         {
@@ -150,7 +150,7 @@ public class MovGus : MonoBehaviour
 
     private void LoadNextLevel()
     {
-        // Load the next scene in the build settings
+        //ESCENA SIGUIENTE
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
@@ -159,7 +159,7 @@ public class MovGus : MonoBehaviour
         else
         {
             Debug.Log("You have completed all levels!");
-            // Optionally, handle what happens when all levels are completed
+            
         }
     }
 }
