@@ -3,16 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - PlayerShot
-  - Spike
-  - Enemigo
-  - Flag
-<<<<<<< HEAD
-  - Pipa
-=======
-  - agua
->>>>>>> c86619033ab83acd23293f3c11a52b9d568945a2
+  tags: []
   layers:
   - Default
   - TransparentFX

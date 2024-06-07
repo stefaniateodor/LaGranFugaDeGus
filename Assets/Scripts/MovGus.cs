@@ -176,10 +176,6 @@ public class MovGus : MonoBehaviour
         }
     }
 
-<<<<<<< HEAD
-   
-}
-=======
     private void CollectSeed(GameObject seed)
     {
         seedCount++;
@@ -197,4 +193,3 @@ public class MovGus : MonoBehaviour
 
    
 }
->>>>>>> c86619033ab83acd23293f3c11a52b9d568945a2
