@@ -5,7 +5,7 @@ using UnityEngine;
 public class Cucarachas : MonoBehaviour
 {
   public float speed = 7f;  // Speed of forward movement
-    public float oscillationAmplitude = 4f;  // Amplitude of the left-right movement
+    public float oscillationAmplitude = 2f;  // Amplitude of the left-right movement
     public float oscillationFrequency = 2f;  // Frequency of the left-right movement
 
     private Vector3 startPosition;
