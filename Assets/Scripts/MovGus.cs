@@ -176,20 +176,6 @@ public class MovGus : MonoBehaviour
         }
     }
 
-    private void CollectSeed(GameObject seed)
-    {
-        seedCount++;
-        UpdateSeedCounterUI();
-        Destroy(seed);
-    }
-
-    private void UpdateSeedCounterUI()
-    {
-        if (seedCounterText != null)
-        {
-            seedCounterText.text = "Seeds: " + seedCount;
-        }
-    }
-
+ 
    
 }
