@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class DisparoRata : MonoBehaviour
 {
-    public GameObject disparorata; 
+    public GameObject moco; 
     public Transform firePoint; 
     public float projectileSpeed = 10f;
     public float fireRate = 2f; // Time between shots
@@ -28,7 +28,7 @@ public class DisparoRata : MonoBehaviour
     void Shoot()
     {
         Vector3 direction = (player.position - firePoint.position).normalized;
-        GameObject projectile = Instantiate(disparorata, firePoint.position, Quaternion.identity);
+        GameObject projectile = Instantiate(moco, firePoint.position, Quaternion.identity);
         Rigidbody rb = projectile.GetComponent<Rigidbody>();
         rb.velocity = direction * projectileSpeed;
         Destroy(projectile, 3f); 
