@@ -258,7 +258,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7.6924195
+  orthographic size: 11.31
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -432,7 +432,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1505414927}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 7.6924195
+    OrthographicSize: 11.31
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -31798,7 +31798,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 127.25, y: 1.85}
+  m_AnchoredPosition: {x: 131.22, y: 2.21}
   m_SizeDelta: {x: 301.6392, y: 27.3991}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1334699934
