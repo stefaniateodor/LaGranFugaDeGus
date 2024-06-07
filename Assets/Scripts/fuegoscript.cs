@@ -34,11 +34,12 @@ public class fuegoscript : MonoBehaviour
     }
      void OnTriggerEnter2D(Collider2D col){
     // Check if the collided object's name starts with "Cucaracha" or "Gusano"
-    if (col.gameObject.name.StartsWith("Cucaracha") || col.gameObject.name.StartsWith("Gusano")){
+    if (col.gameObject.name.StartsWith("Cucaracha") || col.gameObject.name.StartsWith("Gusano") || col.gameObject.name.StartsWith("Ratasaurio")){
         // Destroy the collided object
         Destroy(col.gameObject);
 
         // Destroy the object this script is attached to
+        Destroy(this.gameObject);
         Destroy(this.gameObject);
     }
 }
