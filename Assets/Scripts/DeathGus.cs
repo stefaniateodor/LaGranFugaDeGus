@@ -15,4 +15,18 @@ public class Death : MonoBehaviour
     {
         
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("agua"))
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {   
+        Debug.Log("Gus a muerto!");
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+    }
 }

@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class DisparoGus : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public  GameObject fuego;  // Start is called before the first frame update
+    public float speedBala = 10.0f;
+    
     void Start()
     {
         
@@ -13,6 +15,9 @@ public class DisparoGus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.E)) {
+        Instantiate(fuego,transform.position, Quaternion.identity);
+
+       }
     }
 }
