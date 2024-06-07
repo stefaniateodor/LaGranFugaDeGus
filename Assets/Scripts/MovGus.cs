@@ -18,16 +18,10 @@ public class MovGus : MonoBehaviour
     private bool puedoSaltar = true;
     private bool activaSaltoFixed = false;
     private float movTeclas;
-
-    // Life system
     public int maxLives = 4;
     private int currentLives;
     public Image[] hearts;
-
-    // Starting position
     private Vector3 startingPosition;
-
-    // Game over UI
     public GameObject gameOverPanel;
 
     // Seed counter

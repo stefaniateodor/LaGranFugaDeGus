@@ -32883,7 +32883,7 @@ MonoBehaviour:
   velocidad: 7
   multiplicador: 4
   multiplicadorSalto: 6
-  multiplicadorRayo: 1
+  multiplicadorRayo: 2
   miraDerecha: 1
   maxLives: 4
   hearts:
