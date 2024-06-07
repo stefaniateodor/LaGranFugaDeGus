@@ -8,15 +8,16 @@ public class InicioScript : MonoBehaviour
 {
    
 
-    private GameObject panelSettings;
+    GameObject panelSettings;
 
     // Start is called before the first frame update
     void Start()
     {
         panelSettings = GameObject.Find("PanelSettings");
         panelSettings.SetActive(false);
-        Debug.Log("dfjd");
     }
+
+    
 
     // Update is called once per frame
     void Update()
@@ -26,7 +27,7 @@ public class InicioScript : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("1_tutorial");
+        SceneManager.LoadScene("1Inicio1");
     }
     
     public void ExitGame()
