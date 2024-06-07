@@ -23,17 +23,11 @@ public class MovGus : MonoBehaviour
     public Image[] hearts;
     private Vector3 startingPosition;
     public GameObject gameOverPanel;
-<<<<<<< HEAD
-    public int seedCount;
-    public Text seedCounterText;
-
-=======
 
     // Seed counter
    
     public Text seedCounterText; 
     private int seedCount; 
->>>>>>> b22e1979b18047bf079c7bfef5542ad8e7595298
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
