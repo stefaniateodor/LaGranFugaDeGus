@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EndingCreditsTrigger : MonoBehaviour
+public class endingcreditos : MonoBehaviour
 {
     public GameObject creditos; // Assign the GameObject holding the ending credits image in the inspector
       private void Start()
