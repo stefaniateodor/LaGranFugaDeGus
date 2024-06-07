@@ -6,15 +6,7 @@ using UnityEngine.Video;
 
 public class InicioScript : MonoBehaviour
 {
-    public VideoPlayer videoPlayer; // Reference to the VideoPlayer component
-
-    public void OnStartButtonClick()
-    {
-        if (videoPlayer != null)
-        {
-            videoPlayer.Play();
-        }
-    }
+   
 
     private GameObject panelSettings;
 
