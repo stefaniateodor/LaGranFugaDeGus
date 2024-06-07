@@ -2372,6 +2372,7 @@ MonoBehaviour:
   maxLives: 4
   hearts: []
   gameOverPanel: {fileID: 0}
+  seedCounterText: {fileID: 0}
 --- !u!50 &943649155
 Rigidbody2D:
   serializedVersion: 4
@@ -2848,7 +2849,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Q-D para moverse \nSpace para saltar !\n"
+  m_text: "Q-D para moverse !  \n2x Space para doble-saltar !\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1511996482aac5b489f32d6bd46243dd, type: 2}
   m_sharedMaterial: {fileID: -2144782068867349955, guid: 1511996482aac5b489f32d6bd46243dd, type: 2}
