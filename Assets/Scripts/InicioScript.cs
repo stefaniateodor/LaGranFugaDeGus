@@ -23,6 +23,7 @@ public class InicioScript : MonoBehaviour
     {
         panelSettings = GameObject.Find("PanelSettings");
         panelSettings.SetActive(false);
+        Debug.Log("dfjd");
     }
 
     // Update is called once per frame
