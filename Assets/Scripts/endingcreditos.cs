@@ -5,7 +5,7 @@ using UnityEngine;
 public class endingcreditos : MonoBehaviour
 {
     public GameObject creditos; // Assign the GameObject holding the ending credits image in the inspector
-      private void Start()
+      private void Start() 
     {
         // Ensure the credits GameObject is inactive at the start
         creditos.SetActive(false);
