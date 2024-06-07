@@ -8,13 +8,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/0Inicio0.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/1_Tutorial.unity
     guid: f98858527c9d5754db558237de156ee9
   - enabled: 1
     path: Assets/Scenes/3_scene3.unity
     guid: b566177d7bd90b04e86383b794e14404
   - enabled: 1
-    path: Assets/Scenes/4_Final_4.unity
+    path: Assets/Scenes/RatasaurioEscena.unity
     guid: 5b3594f12afb455488d5fa5bb343d1e6
+  - enabled: 1
+    path: Assets/Scenes/EscenaFinal.unity
+    guid: 6d87ba007a0f02b4f86fc0137098cf6c
+  - enabled: 1
+    path: Assets/Scenes/creditos.unity
+    guid: 55ec3eebd4d4ba241b089b856f5e691f
   m_configObjects: {}

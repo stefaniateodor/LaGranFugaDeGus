@@ -23,9 +23,17 @@ public class MovGus : MonoBehaviour
     public Image[] hearts;
     private Vector3 startingPosition;
     public GameObject gameOverPanel;
+<<<<<<< HEAD
     public int seedCount;
     public Text seedCounterText;
 
+=======
+
+    // Seed counter
+   
+    public Text seedCounterText; 
+    private int seedCount; 
+>>>>>>> b22e1979b18047bf079c7bfef5542ad8e7595298
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -44,9 +52,7 @@ public class MovGus : MonoBehaviour
             gameOverPanel.SetActive(false);
         }
 
-        // Initialize seed counter
-        seedCount = 0;
-        UpdateSeedCounterUI();
+        
     }
 
     void Update()
@@ -112,10 +118,7 @@ public class MovGus : MonoBehaviour
         {
             LoadNextLevel();
         }
-        else if (collision.gameObject.CompareTag("Seed"))
-        {
-            CollectSeed(collision.gameObject);
-        }
+       
     }
 
     private void HandleRespawn()
@@ -174,18 +177,6 @@ public class MovGus : MonoBehaviour
         }
     }
 
-    private void CollectSeed(GameObject seed)
-    {
-        seedCount++;
-        UpdateSeedCounterUI();
-        Destroy(seed);
-    }
-
-    private void UpdateSeedCounterUI()
-    {
-        if (seedCounterText != null)
-        {
-            seedCounterText.text = "Seeds: " + seedCount;
-        }
-    }
+ 
+   
 }

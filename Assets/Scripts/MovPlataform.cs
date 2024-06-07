@@ -5,8 +5,8 @@ using UnityEngine;
 public class MovPlataform : MonoBehaviour
 {
  public float speed = 2f;          // Speed of the platform
-    public float leftBound = -3f;    // Left boundary for the platform
-    public float rightBound = 3f;    // Right boundary for the platform
+    public float leftBound = -1f;    // Left boundary for the platform
+    public float rightBound = 1f;    // Right boundary for the platform
 
     private Vector3 direction = Vector3.left;
 

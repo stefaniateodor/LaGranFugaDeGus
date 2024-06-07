@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 7597436180871926851}
   - component: {fileID: 7412857279405027002}
   - component: {fileID: 4680503150848794044}
+  - component: {fileID: -6646108263368641155}
   m_Layer: 0
   m_Name: fuego
-  m_TagString: Untagged
+  m_TagString: Spike
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,6 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedBala: 5
+  damage: 10
 --- !u!58 &7412857279405027002
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -113,9 +115,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0003949668, y: 0.006560155}
+  m_Offset: {x: 0.00071438414, y: 0.0065601557}
   serializedVersion: 2
-  m_Radius: 0.043988924
+  m_Radius: 0.047317
 --- !u!95 &4680503150848794044
 Animator:
   serializedVersion: 5
@@ -137,3 +139,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!50 &-6646108263368641155
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7597436180871926848}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
