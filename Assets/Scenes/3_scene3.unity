@@ -1358,7 +1358,7 @@ GameObject:
   - component: {fileID: 325873646}
   m_Layer: 0
   m_Name: Pipaaa (2)
-  m_TagString: Untagged
+  m_TagString: Pipa
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14746,7 +14746,7 @@ GameObject:
   - component: {fileID: 1008665957}
   m_Layer: 0
   m_Name: Pipaaa (3)
-  m_TagString: Untagged
+  m_TagString: Pipa
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31247,7 +31247,7 @@ GameObject:
   - component: {fileID: 1252293390}
   m_Layer: 0
   m_Name: Pipaaa (4)
-  m_TagString: Untagged
+  m_TagString: Pipa
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32734,6 +32734,7 @@ GameObject:
   - component: {fileID: 1505414923}
   - component: {fileID: 1505414928}
   - component: {fileID: 1505414929}
+  - component: {fileID: 1505414931}
   m_Layer: 0
   m_Name: Gus
   m_TagString: Untagged
@@ -32882,7 +32883,7 @@ MonoBehaviour:
   velocidad: 7
   multiplicador: 4
   multiplicadorSalto: 6
-  multiplicadorRayo: 3
+  multiplicadorRayo: 1
   miraDerecha: 1
   maxLives: 4
   hearts:
@@ -32919,6 +32920,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnPoint: {fileID: 1434919355}
+--- !u!114 &1505414931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505414920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a39425199d16aa4eb4fdac25cc430eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupSound: {fileID: 8300000, guid: 82d58d77dacb3ea4abffe4e8587bffa7, type: 3}
 --- !u!1 &1522869589 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 849783818399718800, guid: 6475d1e434cde35459043f213d07b91a, type: 3}
@@ -35347,7 +35361,7 @@ GameObject:
   - component: {fileID: 2000187469}
   m_Layer: 0
   m_Name: Pipaaa (1)
-  m_TagString: Untagged
+  m_TagString: Pipa
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35379,7 +35393,7 @@ GameObject:
   - component: {fileID: 2000353625}
   m_Layer: 0
   m_Name: Pipaaa
-  m_TagString: Untagged
+  m_TagString: Pipa
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35411,7 +35425,7 @@ GameObject:
   - component: {fileID: 2030303215}
   m_Layer: 0
   m_Name: Pipaaa (5)
-  m_TagString: Untagged
+  m_TagString: Pipa
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
