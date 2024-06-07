@@ -32,7 +32,8 @@ public class MovGus : MonoBehaviour
 
     // Seed counter
    
-
+    public Text seedCounterText; 
+    private int seedCount; 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
