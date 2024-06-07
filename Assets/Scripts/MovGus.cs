@@ -32,7 +32,8 @@ public class MovGus : MonoBehaviour
 
     // Seed counter
    
-
+    public Text seedCounterText; 
+    private int seedCount; 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -176,20 +177,6 @@ public class MovGus : MonoBehaviour
         }
     }
 
-    private void CollectSeed(GameObject seed)
-    {
-        seedCount++;
-        UpdateSeedCounterUI();
-        Destroy(seed);
-    }
-
-    private void UpdateSeedCounterUI()
-    {
-        if (seedCounterText != null)
-        {
-            seedCounterText.text = "Seeds: " + seedCount;
-        }
-    }
-
+ 
    
 }

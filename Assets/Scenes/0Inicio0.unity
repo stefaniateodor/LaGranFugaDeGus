@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 206545286}
   - component: {fileID: 206545285}
   - component: {fileID: 206545284}
-  - component: {fileID: 206545288}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -172,10 +171,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1663.96, y: 600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 0
@@ -227,18 +226,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &206545288
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 206545283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe80e457be4d43a4fa0d3b8c19f1ce48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &378812888
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,16 +309,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 206545288}
-        m_TargetAssemblyTypeName: InicioScript, Assembly-CSharp
-        m_MethodName: StartGame
-        m_Mode: 1
+      - m_Target: {fileID: 32900000, guid: 2390c813e24ff5241814bc492ece6a9b, type: 3}
+        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
+        m_MethodName: set_name
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: VideoGus
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &378812891
@@ -455,7 +442,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 206545288}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InicioScript, Assembly-CSharp
         m_MethodName: ExitGame
         m_Mode: 1
@@ -589,6 +576,73 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &658527119
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 658527121}
+  - component: {fileID: 658527120}
+  m_Layer: 0
+  m_Name: Videogus
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!328 &658527120
+VideoPlayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658527119}
+  m_Enabled: 1
+  m_VideoClip: {fileID: 32900000, guid: 2390c813e24ff5241814bc492ece6a9b, type: 3}
+  m_TargetCameraAlpha: 1
+  m_TargetCamera3DLayout: 0
+  m_TargetCamera: {fileID: 0}
+  m_TargetTexture: {fileID: 0}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: <noninit>
+  m_RenderMode: 1
+  m_AspectRatio: 2
+  m_DataSource: 0
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 2
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 1
+  m_Url: 
+  m_EnabledAudioTracks: 01
+  m_DirectAudioMutes: 00
+  m_ControlledAudioTrackCount: 1
+  m_PlayOnAwake: 1
+  m_SkipOnDrop: 1
+  m_Looping: 0
+  m_WaitForFirstFrame: 1
+  m_FrameReadyEventEnabled: 0
+  m_VideoShaders: []
+--- !u!4 &658527121
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658527119}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 245.93427, y: 189.98573, z: -2639.63}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &942786680
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,7 +747,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -682, y: -375}
+  m_AnchoredPosition: {x: -618, y: -378}
   m_SizeDelta: {x: 125, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1484496039
@@ -740,7 +794,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 206545288}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InicioScript, Assembly-CSharp
         m_MethodName: OcultarSettings
         m_Mode: 1
@@ -826,8 +880,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -0.0010375977, y: -0.0014801}
-  m_SizeDelta: {x: -142.22, y: 1000}
+  m_AnchoredPosition: {x: 0.0005493164, y: 0.33043}
+  m_SizeDelta: {x: -123.26, y: 999.38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1556275508
 MonoBehaviour:
@@ -878,6 +932,7 @@ GameObject:
   - component: {fileID: 1798426765}
   - component: {fileID: 1798426767}
   - component: {fileID: 1798426766}
+  - component: {fileID: 1798426768}
   m_Layer: 5
   m_Name: PanelInicio
   m_TagString: Untagged
@@ -903,10 +958,10 @@ RectTransform:
   m_Father: {fileID: 206545287}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.11734428}
+  m_AnchorMax: {x: 1, y: 0.8743424}
+  m_AnchoredPosition: {x: 0, y: -0.114990234}
+  m_SizeDelta: {x: 0, y: -6.665985}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1798426766
 MonoBehaviour:
@@ -946,6 +1001,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1798426764}
   m_CullTransparentMesh: 1
+--- !u!114 &1798426768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798426764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe80e457be4d43a4fa0d3b8c19f1ce48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  videoPlayer: {fileID: 658527120}
 --- !u!1 &1918210356
 GameObject:
   m_ObjectHideFlags: 0
@@ -1170,7 +1238,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 206545288}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InicioScript, Assembly-CSharp
         m_MethodName: MostrarSettings
         m_Mode: 1
